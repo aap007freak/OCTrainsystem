@@ -14,14 +14,19 @@ end
 function writeToFile(table)
 end
 
+
+--protocols for this function in the readme file
 function call()
 _,ourmodem,sendermodem,port,_,id,code,content = event.pull("modem") --wait for a message and save it in these variables
 if port == 2 then --stationcontrollers
   if code == "getID" then
     stations[id] == content
-    modem.send(sendermodem, 2, id "getID")
-    --TODO: write this to the table, and file
-  elseif code == ""
+    writeToFile(stations)
+    modem.send(sendermodem, 2, id ,"getID")
+  elseif code == "update" then
+    stations[id] == content
+    writeToFile(stations)
+    modem.send(sendermodem, 2, id, "update")
 end
 end
 
