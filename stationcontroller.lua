@@ -1,0 +1,2 @@
+--read the readme provided with this project to get more info about this file
+--and how it should be installed

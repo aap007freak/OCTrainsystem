@@ -12,3 +12,12 @@ x,x,x,port,x,id,code,content
 One pc should have this program.
 gets info about trains leaving and entering stations,
 and forwards them to other clients
+
+-Stationcontroller
+USES PORT 2 FOR COMMUNICATION
+
+
+
+
+PROTOCOLS
+new controller accesses master then id = whatever id you want (not a used one), content = table with info from the station
