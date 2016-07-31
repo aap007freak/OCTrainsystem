@@ -5,7 +5,7 @@ local component = require("component")
 modem = component.modem
 
 stations = {}
-
+id = master
 function openPorts()
   modem.open(2)
 end
@@ -15,19 +15,18 @@ function writeToFile(table)
 end
 
 function call()
-local _,ourmodem,sendermodem,port,_,id,code,content = event.pull("modem") --wait for a message and save it in these variables
+_,ourmodem,sendermodem,port,_,id,code,content = event.pull("modem") --wait for a message and save it in these variables
 if port == 2 then --stationcontrollers
-  if stations[id] == nil then
-    --new station
-    stations[id] = new 
-  else
-  --old station
-  end
-
+  if code == "getID" then
+    stations[id] == content
+    modem.send(sendermodem, 2, id "getID")
+    --TODO: write this to the table, and file
+  elseif code == ""
+end
 end
 
-end
-
+--------------------------------------------------------------------------------
+openPorts()
 while true do
   call()
   os.sleep(1) -- adding latency to remove some lag (can be edited if wanted)

@@ -20,4 +20,10 @@ USES PORT 2 FOR COMMUNICATION
 
 
 PROTOCOLS
-new controller accesses master then id = whatever id you want (not a used one), content = table with info from the station
+
+NEW CONTROLLER GETS ID FROM MASTER :     
+from con: id = what you want id to be (not a used one), code = "getID" ,content = table containing station info
+to   con: id = master                                 , code = "getID"
+
+CHANGE FROM CONTROLLER (train enters/leaves station, new train added etc.)
+from con: id = what your ID is (use above)            , code = "update" ,content = table containing station info (updated ofc)
